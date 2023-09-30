@@ -17,7 +17,7 @@ Future<void> main() async {
   contatos.forEach((contato) {
     contatosWidgets.add(contato.contatoWidget());
   });
-  runApp(HomePage());
+  runApp(const HomePage());
 }
 
 class HomePage extends StatefulWidget {
@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      backgroundColor: Color.fromRGBO(236, 236, 236, 1),
+      backgroundColor: const Color.fromRGBO(236, 236, 236, 1),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -56,66 +56,64 @@ class Busca extends StatelessWidget {
         Container(
           width: 340,
           height: 46,
-          decoration: ShapeDecoration(
-            color: Color(0xFFD9D9D9),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
-            shadows: [
+          decoration: BoxDecoration(
+            color: const Color(0xFFD9D9D9),
+            borderRadius: BorderRadius.circular(50),
+            boxShadow: const[
               BoxShadow(
                 color: Color(0x3F000000),
                 blurRadius: 4,
                 offset: Offset(0, 4),
                 spreadRadius: 0,
-              )
+              ),
             ],
           ),
-          child: Center(
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Icon(
-                      Icons.search,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 5),
+                child: Icon(
+                  Icons.search,
+                  color: Color.fromRGBO(84, 95, 113, 1),
+                  size: 25,
+                ),
+              ),
+              SizedBox(
+                width: 200,
+                height: 38,
+                child: Center(
+                  child: TextField(
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      hintText: 'Pesquisar contatos e números...',
+                      hintStyle: TextStyle(
+                        color: Colors.grey,
+                      ),
+                      border: InputBorder.none,
+                    ),
+                    onSubmitted: (_) {},
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(right: 5),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.mic,
                       color: Color.fromRGBO(84, 95, 113, 1),
                       size: 25,
                     ),
-                  ),
-                  SizedBox(
-                    child: Center(
-                      child: TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          hintText: 'Pesquisar contatos e números...',
-                          hintStyle: TextStyle(
-                            color: Colors
-                                .grey, // Altere a cor da dica conforme necessário
-                          ),
-                          border: InputBorder.none,
-                        ),
-                        onSubmitted: (value) {},
-                      ),
+                    Icon(
+                      Icons.more_vert,
+                      color: Color.fromRGBO(84, 95, 113, 1),
+                      size: 25,
                     ),
-                    width: 200,
-                    height: 38,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 5),
-                    child: Row(children: [
-                      Icon(
-                        Icons.mic,
-                        color: Color.fromRGBO(84, 95, 113, 1),
-                        size: 25,
-                      ),
-                      Icon(
-                        Icons.more_vert,
-                        color: Color.fromRGBO(84, 95, 113, 1),
-                        size: 25,
-                      ),
-                    ]),
-                  )
-                ]),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ],
@@ -133,10 +131,10 @@ class _FavoritosState extends State<Favoritos> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(
+        const Align(
           alignment: Alignment.topLeft,
           child: Padding(
-            padding: const EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(left: 20),
             child: Text(
               'Favoritos',
               style: TextStyle(
@@ -148,7 +146,7 @@ class _FavoritosState extends State<Favoritos> {
             ),
           ),
         ),
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
         Center(
           child: Container(
             width: MediaQuery.of(context).size.width - 40,
@@ -180,10 +178,10 @@ class _ContatosState extends State<Contatos> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(
+        const Align(
           alignment: Alignment.topLeft,
           child: Padding(
-            padding: const EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(left: 20),
             child: Text(
               'Todos',
               style: TextStyle(
@@ -195,7 +193,7 @@ class _ContatosState extends State<Contatos> {
             ),
           ),
         ),
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
         Center(
           child: Container(
             width: MediaQuery.of(context).size.width - 40,
